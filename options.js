@@ -1,11 +1,11 @@
-var solutionDesigners = [];
+var productOwners = [];
 var testAnalysts = [];
 var softwareEngineers = [];
 var isFirefox = typeof InstallTrigger !== 'undefined';
 window.onload = () => {
-  chrome.storage.sync.get(['SDarray'], function (result) {
-    if (result.SDarray === undefined) {
-      chrome.storage.sync.set({ SDarray: solutionDesigners }, function () { console.log("Initial solution designers array save!"); });
+  chrome.storage.sync.get(['POarray'], function (result) {
+    if (result.POarray === undefined) {
+      chrome.storage.sync.set({ POarray: productOwners }, function () { console.log("Initial product owner array save!"); });
     }
   });
   chrome.storage.sync.get(['TAarray'], function (result) {
@@ -18,24 +18,24 @@ window.onload = () => {
       chrome.storage.sync.set({ SEarray: softwareEngineers }, function () { console.log("Initial software engineer array save!"); });
     }
   });
-  addSDs();
+  addPOs();
   addTAs();
   addSEs();
-  document.getElementById('addSD').onclick = () => {
-    var name = document.getElementById("SDname").value;
-    var id = document.getElementById("SDid").value;
-    chrome.storage.sync.get(['SDarray'], function (result) {
-      for (var i = 0; i < result.SDarray.length; i++) {
-        holder = result.SDarray[i].split(" :");
-        solutionDesigners[holder[0]] = true;
+  document.getElementById('addPO').onclick = () => {
+    var name = document.getElementById("POname").value;
+    var id = document.getElementById("POid").value;
+    chrome.storage.sync.get(['POarray'], function (result) {
+      for (var i = 0; i < result.POarray.length; i++) {
+        holder = result.POarray[i].split(" :");
+        productOwners[holder[0]] = true;
       }
-      if (solutionDesigners[name] != undefined) {
+      if (productOwners[name] != undefined) {
         alert("Person is already on the list.");
-        document.getElementById('SDname').value = '';
-        document.getElementById('SDid').value = '';
+        document.getElementById('POname').value = '';
+        document.getElementById('POid').value = '';
       } else {
-        solutionDesigners[name] = true;
-        addNames('SDname', 'SDid', 'SDlist', document.getElementById('SDname').value + " :" + document.getElementById('SDid').value, solutionDesigners, deleteSD);
+        productOwners[name] = true;
+        addNames('POname', 'POid', 'POlist', document.getElementById('POname').value + " :" + document.getElementById('POid').value, productOwners, deletePO);
       }
     });
   }
@@ -77,7 +77,7 @@ window.onload = () => {
 function save_options() {
   if (isFirefox) {
     browser.storage.sync.set({
-      SDarray: solutionDesigners,
+      POarray: productOwners,
       TAarray: testAnalysts,
       SEarray: softwareEngineers
     }, function () {
@@ -85,7 +85,7 @@ function save_options() {
     });
   } else {
     chrome.storage.sync.set({
-      SDarray: solutionDesigners,
+      POarray: productOwners,
       TAarray: testAnalysts,
       SEarray: softwareEngineers
     }, function () {
@@ -93,21 +93,21 @@ function save_options() {
     });
   }
 }
-function deleteSD(e) {
+function deletePO(e) {
   var closebtns = document.getElementsByClassName("close");
-  for (i = 0; i < solutionDesigners.length; i++) {
+  for (i = 0; i < productOwners.length; i++) {
     if (!isFirefox) {
-      if (solutionDesigners[i] === e.path[1].innerHTML) {
-        var holder = solutionDesigners[i].split(" :");
-        solutionDesigners[holder[0]] = undefined;
-        solutionDesigners.splice(i, 1);
+      if (productOwners[i] === e.path[1].innerHTML) {
+        var holder = productOwners[i].split(" :");
+        productOwners[holder[0]] = undefined;
+        productOwners.splice(i, 1);
         break;
       }
     } else {
-      if (solutionDesigners[i] === e.originalTarget.parentElement.innerHTML) {
-        var holder = solutionDesigners[i].split(" :");
-        solutionDesigners[holder[0]] = undefined;
-        solutionDesigners.splice(i, 1);
+      if (productOwners[i] === e.originalTarget.parentElement.innerHTML) {
+        var holder = productOwners[i].split(" :");
+        productOwners[holder[0]] = undefined;
+        productOwners.splice(i, 1);
         break;
       }
     }
@@ -171,11 +171,11 @@ function deleteSE(e) {
   }
   save_options();
 }
-function addSDs() {
-  chrome.storage.sync.get(['SDarray'], function (result) {
-    for (var i = 0; i < result.SDarray.length; i++) {
-      result.SDarray[i] = result.SDarray[i].split("<sp")[0];
-      addNames('SDname', 'SDid', 'SDlist', result.SDarray[i], solutionDesigners, deleteSD);
+function addPOs() {
+  chrome.storage.sync.get(['POarray'], function (result) {
+    for (var i = 0; i < result.POarray.length; i++) {
+      result.POarray[i] = result.POarray[i].split("<sp")[0];
+      addNames('POname', 'POid', 'POlist', result.POarray[i], productOwners, deletePO);
     }
   });
 }
