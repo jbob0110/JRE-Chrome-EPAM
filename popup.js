@@ -365,7 +365,7 @@ window.onload = () => {
   };
   
     /**PCFRAME Stories SC-Y Button - Sub-Tasks Created */
-    document.getElementById('scYesPCFRAME').onclick = () => {
+    document.getElementById('scYesPCFRAMEStory').onclick = () => {
       var Po = document.getElementById('POs').value;
       var Epo = document.getElementById('EPOs').value;
       var Ta = document.getElementById('TAs').value;
@@ -698,7 +698,7 @@ window.onload = () => {
     };
   
     /**PCFRAME Defects SC-Y Button - Sub-Tasks Created */
-    document.getElementById('scYesPCFRAME').onclick = () => {
+    document.getElementById('scYesPCFRAMEDefect').onclick = () => {
       var Po = document.getElementById('POs').value;
       var Epo = document.getElementById('EPOs').value;
       var Ta = document.getElementById('TAs').value;
