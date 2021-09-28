@@ -297,7 +297,7 @@ window.onload = () => {
     }
     );
     console.log("Requirements Sent");
-    
+
     addSubTask({
       "fields":{
         "project":{
@@ -306,10 +306,10 @@ window.onload = () => {
         "parent":{
           "key": jiraKey
         },
-        "summary":"Test Case/Scenario Review",
-        "description":"*As a* Test Analyst\n*I want to* identify component tests that can be Automated AND create a scenario review for any new scenarios \n *So that* Engineers or TAs know what scenarios to automate \n*Ill known im done when* tests have been identified and scenario review (if necessary) is logged with a link provided in this subtask \nh4. Tasks for existing scripts before adding new scenarios\n||Task||Status||\n| Address if Scenarios to an existing script can be moved to an SBET | (x) |\n| Optimization (only after the first two have been completed) | (x) |\nDetailed Steps: \n 1. Meet with the Engineers and POs to review the requirements \n 2. Separate out what requirements should go in the automated script or to an SBET. \n 3. Create the scenarios for the black box test and send them for review.\n 4. Document where the requirements will be tested. Black Box or SBET.\n",
+        "summary":"Define Integration & System Test",
+        "description":"",
         "assignee":{
-          "name": Eta
+          "name": Ese
         },
         "issuetype":{
           "name":"Sub-task"
@@ -317,8 +317,6 @@ window.onload = () => {
       }
     }
     );
-    console.log("Test Case Sent");
-
     console.log("Define Integration & System Test Sent");
 
     addSubTask({
@@ -361,7 +359,29 @@ window.onload = () => {
       }
     }
     );
-    console.log("Tech Design Sent");
+    console.log("Design IO Form Sent");
+
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Automation",
+        "description":" ",
+        "assignee":{
+          "name": Eta
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Automation Sent");
+
   };
   
     /**PCFRAME Stories SC-Y Button - Sub-Tasks Created */
