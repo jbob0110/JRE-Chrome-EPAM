@@ -43,15 +43,13 @@ window.onload = () => {
       chrome.storage.sync.set({ TLarray: teamLead }, function () { console.log("Initial team lead array save!"); });
     }
   });
-
-
   addPOs();
   addEPOs();
   addTAs();
   addETAs();
   addSEs();
   addESEs();
-  addEventListener();
+  addTLs();
   document.getElementById('addPO').onclick = () => {
     var name = document.getElementById("POname").value;
     var id = document.getElementById("POid").value;
@@ -156,7 +154,7 @@ window.onload = () => {
       }
     });
   }
-  document.getElementById('addETL').onclick = () => {
+  document.getElementById('addTL').onclick = () => {
     var name = document.getElementById("TLname").value;
     chrome.storage.sync.get(['TLarray'], function (result) {
       for (var i = 0; i < result.TLarray.length; i++) {
@@ -173,7 +171,6 @@ window.onload = () => {
       }
     });
   }
-
 }
 function save_options() {
   if (isFirefox) {
