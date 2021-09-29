@@ -664,7 +664,7 @@ window.onload = () => {
           "summary":"Story Review / Merge Code",
           "description":"h2. Overview\n\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n # Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n # Merge any features associated with this Story / Defect\n # Close this sub-task\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Story Review / Merge Code sub-task exist\n\n*Sub-Task Audits*\n * Has the sub-task been closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed\nbelow.\n ** The parent issue also has a resolution that no work is needed.",
           "assignee":{
-            "name": Ese
+            "name": Se
           },
           "issuetype":{
             "name":"Sub-task"
@@ -1018,7 +1018,7 @@ window.onload = () => {
           "summary":"Story Review / Merge Code",
           "description":"h2. Overview\n\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n # Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n # Merge any features associated with this Story / Defect\n # Close this sub-task\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Story Review / Merge Code sub-task exist\n\n*Sub-Task Audits*\n * Has the sub-task been closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed\nbelow.\n ** The parent issue also has a resolution that no work is needed.",
           "assignee":{
-            "name": Ese
+            "name": Se
           },
           "issuetype":{
             "name":"Sub-task"
