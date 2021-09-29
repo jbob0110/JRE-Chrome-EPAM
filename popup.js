@@ -120,6 +120,20 @@ chrome.storage.sync.get(['ESEarray'], function(result) {
 }
 );
 
+chrome.storage.sync.get(['TLEarray'], function(result) {
+  var x = document.getElementById("TLs");
+  var option, split;
+  for(var i = 0; i< result.TLEarray.length; i++){
+    option = document.createElement("option");
+    split = result.TLEarray[i].split("<spa");
+    split = split[0].split(" :");
+    option.text = split[0];
+    option.value = split[1];
+    x.add(option);
+  }
+}
+);
+
 /**Add Sub-Task Function */
 function addSubTask(subtask){
   var xhr = new XMLHttpRequest;
@@ -398,6 +412,7 @@ window.onload = () => {
       console.log("ETA: "+Eta);
       console.log("SE: "+Se);
       console.log("ESE: "+Ese);
+      console.log("TL: "+Tl);
       document.getElementById('loader').style.display = "block";
         document.getElementById('loader').style.display = "block";
       
@@ -538,7 +553,7 @@ window.onload = () => {
           "summary":"Test Case Design",
           "description":"h2. Overview\n\nIdentify any test plan designs which need to be modified or created for this project. Utilize the *<test plan design template>* when creating a new test plan design, otherwise, update the design page that is posted by *<requirements>*. Once you've finished making your changes, add _Web Links_ to each wiki page, comment which test plans apply to the project, request reviewers by @mentioning them and update the status of this sub-task to _In Review_. As reviewers provide comments make updates to the test plan designs. Once all changes have been finalized, close this sub-task.\n{panel:bgColor=#fffcd8}If there are existing test plan designs which already cover the functionality of this project, add _Web Links_ to each of those pages and comment which specific test plans apply to the project.{panel}\nh2. Acceptance Criteria\n # Identify test plan designs which need to be modified or created\n # Add _Web Links_ to each page that is being updated\n ** If no updates were necessary, add _Web Links_ to the existing test plan designs which cover the functionality of this project\n # Comment which test plans apply for the project\n # Address comments as they are provided by reviewers\n # Close the sub-task once reviewers have given their +1 and the test plan designs have been finalized\n ** If no updates were necessary, reviewers will be giving a +1 that all functionality is covered in the existing pages\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Test Plan Design sub-task exist?\n\n*Sub-Task Audits*\n * Is the sub-task closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n ** The parent issue also has a resolution that no work is needed.\n ** A white box test plan has been developed, posted for review and executed under the Gray Box / Formal White Box Testing sub-task\n * Have any links to wiki documents been added as _Web Links_ in this sub-task?\n * Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -559,7 +574,7 @@ window.onload = () => {
           "summary":"Test Case Development, Automation, and Review",
           "description":"h2. Overview\nMultiple types of testing may need to be created to cover all of the changes for this Story / Defect.  Follow the guidance below to determine what steps should be taken based on the test type.\n\n*Manual Vertical Regression, Session Based Exploratory Testing (SBET) or User Interface (UI) test plans*\nIf creating or updating any of these testing types, make your changes in RQM and export the updated test plan as a PDF file.  Attach that file for review in the sub-task, request reviewers by @mentioning them and update the status of the sub-task to _In Review_.  Once all comments have been addressed and reviewers have given their +1, attach the finalized PDF to the sub-task.\n\n*Automated Test Plans*\nIf creating automated test plans, perform the code changes and create a pull request for each test being modified.  For each pull request add a _Web Link_ to it in this sub-task.  Update the status of the sub-task to _In Review_.  Once all reviews are merged, close the sub-task\n\nh2. Acceptance Criteria\n*Manual Vertical Regression, Session Based Exploratory Testing (SBET) or User Interface (UI) test plans*\n# Create or update any test plans which cover the changes being made in this story\n# Export the test plans to a PDF and attach to this sub-task for review\n# Address comments as they are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the test plans have been finalized\n\n*Automated Test Plans*\n# Write the automated tests which cover the changes being made in this story\n# Create a pull request in the necessary repositories and add _Web Links_ to them in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull requests\n# Close the sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Test Plan Development, Automation, and Review sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (Not Applicable, Duplicate, etc...) and is it valid?  Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** A white box test plan has been developed, posted for review and executed under the Gray Box /  Formal White Box Testing sub-task.\n* Has a PDF file been attached for review?\n** If so, has a +1 comment been provided by someone other than the sub-task assignee?\n* Has a pull request been linked in the sub-task?\n** If so, are all reviews merged?\n",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -580,7 +595,7 @@ window.onload = () => {
           "summary":"Test Case Tracing",
           "description":"h2. Overview\nOnce test plans have been reviewed and uploaded to the appropriate location, update all requirements pages with links to the test plans that cover the listed requirement for this project.  Once completed, add _Web Links_ to this sub-task linking out to the requirements documents which were updated.\n\nTest plan tracing should be completed for the following test types:\n* Gray Box Test Plans\n* Formal White Box Test Plans\n* Manual Vertical Regression Test Plans\n* Manual SBET Test Plans\n* Manual UI Test Plans\n* Automated Vertical Regression Test Plans\n\nh2. Acceptance Criteria\n Update all requirements wikis with links to the test plans that cover the requirements listed for this project.\n# Add a _Web Link_ to this sub-task for each requirements page updated\n# Close the sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Test Plan Tracing sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n* Have links to the updated requirements wiki been posted?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -601,7 +616,7 @@ window.onload = () => {
           "summary":"Certification Guideline Creation",
           "description":"h2. Overview\nFor client viewable solution changes, a certification guideline detailing how clients will test enhancements / defects is needed.  Create the appropriate document outlining the necessary steps for client testing.  Once ready for review, attach the certification guideline to the sub-task and request reviewers by @mentioning them.  Once posted for review update the status of the sub-task to _In Review_.\n\n{panel:bgColor=#fffcd8}If this story does not contain a solution change (External Key) or the solution change is non-client viewable, you can close this sub-task as _Not Applicable_{panel}\n\nh2. Acceptance Criteria\n# Write the certification guideline testing steps\n# Attach the completed document to this sub-task for review\n# Address comments as the are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the certification guideline has been finalized\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Certification Guideline Creation sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** The parent issue does not contain a solution change (_External Key_)\n** The parent issue's solution change (_External Key_) is not client viewable\n* Is a certification guideline document attached?\n** If a certification guideline is attached, does it contain the solution change number in the file name?\n* Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -664,7 +679,7 @@ window.onload = () => {
           "summary":"Story Review / Merge Code",
           "description":"h2. Overview\n\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n # Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n # Merge any features associated with this Story / Defect\n # Close this sub-task\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Story Review / Merge Code sub-task exist\n\n*Sub-Task Audits*\n * Has the sub-task been closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed\nbelow.\n ** The parent issue also has a resolution that no work is needed.",
           "assignee":{
-            "name": Se
+            "name": Tl
           },
           "issuetype":{
             "name":"Sub-task"
@@ -685,7 +700,7 @@ window.onload = () => {
           "summary":"Unscripted Testing",
           "description":"h2. Overview\nUnscripted testing should be completed at the same time as code reviews are being performed.  This will allow your team to identify issues when code is still being actively developed.  It is the responsibility of the Engineer to setup a location where their changes can be easily tested by other associates.  Once setup is complete, details on how to access the testing environment should be provided in this sub-task.  When you are ready for unscripted testing to begin, @mention the associates you would like to assist you with testing.  Any issues identified should be addressed and re deployed back out to the testing environment.  Once all testers have completed their unscripted testing, they should leave a +1 comment on this sub-task to signify that they were able to test successfully.\n\n*Considerations*\n# If there is an equivalent workflow in Win64, be sure to include testing the equivalent steps/UI with unscripted testing.\n# Include all relevant associates in the unscripted testing session (up to and including subject-matter experts, strategists, UX designers, solution designers, and so on.\n\nh2. Acceptance Criteria\n# Setup a location where testing can take place\n# Detail any information needed by testers in this sub-task\n# Address issues as they are discovered by unscripted testers\n# Close the sub-task once all unscripted testers have given their +1 and the code has been finalized\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Unscripted Testing sub-task exist\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n* Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Epo
+            "name": Eta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -706,7 +721,7 @@ window.onload = () => {
           "summary":"Validation Testing",
           "description":"h2. Overview\nOnce the code for a project has reached a location where validation testing can be performed, update the status of this sub-task to _In Progress_.  Run any validation tests necessary to cover the modifications made in this Story / Defect.  If an issue is discovered, update the status of the sub-task to 'Blocked' and log a [CERTMPAGES|https://jira.cerner.com/projects/CERTMPAGES] issue providing details on how to recreate it.  Be sure to link to the CERTMPAGES issue from this sub-task.  Once all validation testing has completed successfully and all CERTMPAGE issues are addressed, close this sub-task.\n\nh2. Acceptance Criteria\n# Update the status of this sub-task to _In Progress_\n# Run any validation tests which cover the functionality for the project\n# If issues are discovered, log a CERTMPAGES issue and link to it from this sub-task\n# Once all tests are run successfully and all CERTMPAGES issues are addressed, close this sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Validation Testing sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid?  Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** A white box test plan has been developed, posted for review and executed under the Gray Box /  Formal White Box Testing sub-task.\n* If any CERTMPAGES issues are linked, are they closed?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -731,6 +746,7 @@ window.onload = () => {
       console.log("ETA: "+Eta);
       console.log("SE: "+Se);
       console.log("ESE: "+Ese);
+      console.log("TL: "+Tl);
       document.getElementById('loader').style.display = "block";
         document.getElementById('loader').style.display = "block";
       
@@ -766,7 +782,7 @@ window.onload = () => {
           "summary":"Perform Hazard Analysis",
           "description":"h2. Overview\nWork with the Agile team to determine if the story impacts any of the following Hazards. Reference our current wiki page for our existing <Hazard Analysis document link>.\nh2. Acceptance Criteria:\n * Document with a Yes or No if your story impacts any of the following hazard types. If yes, explain why.\n ** Financial: <yes or no. If yes, explain why>\n ** Legal/Regulatory: <yes or no. If yes, explain why>\n ** Data Integrity: <yes or no. If yes, explain why>\n ** Patient Safety: <yes or no. If yes, explain why>\n ** CyberSecurity/Information Security: <yes or no. If yes, explain why>\n * Engineer assigned to the project has added a +1 indicating that they discussed the impact this story has with regards to Hazards and agrees with the assessment.\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Perform Hazard Analysis sub-task exist?\n\n*Sub-Task Audits*\n * Has the sub-task been closed?\n * Has a resolution been given that no work is needed on the sub-task (Not Applicable, Duplicate, etc...) and is it valid? Valid scenarios are detailed below.\n ** The parent issue also has a resolution that no work is needed.\n * Have the hazard analysis questions have been filled out in the Description field of the sub-task.\n ** If so, has a +1 comment been provided by someone other than the sub-task assignee?\n",
           "assignee":{
-            "name": Eta
+            "name": Po
           },
           "issuetype":{
             "name":"Sub-task"
@@ -892,7 +908,7 @@ window.onload = () => {
           "summary":"Test Case Design",
           "description":"h2. Overview\n\nIdentify any test plan designs which need to be modified or created for this project. Utilize the *<test plan design template>* when creating a new test plan design, otherwise, update the design page that is posted by *<requirements>*. Once you've finished making your changes, add _Web Links_ to each wiki page, comment which test plans apply to the project, request reviewers by @mentioning them and update the status of this sub-task to _In Review_. As reviewers provide comments make updates to the test plan designs. Once all changes have been finalized, close this sub-task.\n{panel:bgColor=#fffcd8}If there are existing test plan designs which already cover the functionality of this project, add _Web Links_ to each of those pages and comment which specific test plans apply to the project.{panel}\nh2. Acceptance Criteria\n # Identify test plan designs which need to be modified or created\n # Add _Web Links_ to each page that is being updated\n ** If no updates were necessary, add _Web Links_ to the existing test plan designs which cover the functionality of this project\n # Comment which test plans apply for the project\n # Address comments as they are provided by reviewers\n # Close the sub-task once reviewers have given their +1 and the test plan designs have been finalized\n ** If no updates were necessary, reviewers will be giving a +1 that all functionality is covered in the existing pages\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Test Plan Design sub-task exist?\n\n*Sub-Task Audits*\n * Is the sub-task closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n ** The parent issue also has a resolution that no work is needed.\n ** A white box test plan has been developed, posted for review and executed under the Gray Box / Formal White Box Testing sub-task\n * Have any links to wiki documents been added as _Web Links_ in this sub-task?\n * Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Ese
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -913,7 +929,7 @@ window.onload = () => {
           "summary":"Test Case Development, Automation, and Review",
           "description":"h2. Overview\nMultiple types of testing may need to be created to cover all of the changes for this Story / Defect.  Follow the guidance below to determine what steps should be taken based on the test type.\n\n*Manual Vertical Regression, Session Based Exploratory Testing (SBET) or User Interface (UI) test plans*\nIf creating or updating any of these testing types, make your changes in RQM and export the updated test plan as a PDF file.  Attach that file for review in the sub-task, request reviewers by @mentioning them and update the status of the sub-task to _In Review_.  Once all comments have been addressed and reviewers have given their +1, attach the finalized PDF to the sub-task.\n\n*Automated Test Plans*\nIf creating automated test plans, perform the code changes and create a pull request for each test being modified.  For each pull request add a _Web Link_ to it in this sub-task.  Update the status of the sub-task to _In Review_.  Once all reviews are merged, close the sub-task\n\nh2. Acceptance Criteria\n*Manual Vertical Regression, Session Based Exploratory Testing (SBET) or User Interface (UI) test plans*\n# Create or update any test plans which cover the changes being made in this story\n# Export the test plans to a PDF and attach to this sub-task for review\n# Address comments as they are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the test plans have been finalized\n\n*Automated Test Plans*\n# Write the automated tests which cover the changes being made in this story\n# Create a pull request in the necessary repositories and add _Web Links_ to them in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull requests\n# Close the sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Test Plan Development, Automation, and Review sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (Not Applicable, Duplicate, etc...) and is it valid?  Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** A white box test plan has been developed, posted for review and executed under the Gray Box /  Formal White Box Testing sub-task.\n* Has a PDF file been attached for review?\n** If so, has a +1 comment been provided by someone other than the sub-task assignee?\n* Has a pull request been linked in the sub-task?\n** If so, are all reviews merged?\n",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -934,7 +950,7 @@ window.onload = () => {
           "summary":"Test Case Tracing",
           "description":"h2. Overview\nOnce test plans have been reviewed and uploaded to the appropriate location, update all requirements pages with links to the test plans that cover the listed requirement for this project.  Once completed, add _Web Links_ to this sub-task linking out to the requirements documents which were updated.\n\nTest plan tracing should be completed for the following test types:\n* Gray Box Test Plans\n* Formal White Box Test Plans\n* Manual Vertical Regression Test Plans\n* Manual SBET Test Plans\n* Manual UI Test Plans\n* Automated Vertical Regression Test Plans\n\nh2. Acceptance Criteria\n Update all requirements wikis with links to the test plans that cover the requirements listed for this project.\n# Add a _Web Link_ to this sub-task for each requirements page updated\n# Close the sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Test Plan Tracing sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n* Have links to the updated requirements wiki been posted?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -955,7 +971,7 @@ window.onload = () => {
           "summary":"Certification Guideline Creation",
           "description":"h2. Overview\nFor client viewable solution changes, a certification guideline detailing how clients will test enhancements / defects is needed.  Create the appropriate document outlining the necessary steps for client testing.  Once ready for review, attach the certification guideline to the sub-task and request reviewers by @mentioning them.  Once posted for review update the status of the sub-task to _In Review_.\n\n{panel:bgColor=#fffcd8}If this story does not contain a solution change (External Key) or the solution change is non-client viewable, you can close this sub-task as _Not Applicable_{panel}\n\nh2. Acceptance Criteria\n# Write the certification guideline testing steps\n# Attach the completed document to this sub-task for review\n# Address comments as the are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the certification guideline has been finalized\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Certification Guideline Creation sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** The parent issue does not contain a solution change (_External Key_)\n** The parent issue's solution change (_External Key_) is not client viewable\n* Is a certification guideline document attached?\n** If a certification guideline is attached, does it contain the solution change number in the file name?\n* Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -1018,7 +1034,7 @@ window.onload = () => {
           "summary":"Story Review / Merge Code",
           "description":"h2. Overview\n\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n # Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n # Merge any features associated with this Story / Defect\n # Close this sub-task\n\nh2. Audits Performed\n\n*Parent Issue Audits*\n * Does the Story Review / Merge Code sub-task exist\n\n*Sub-Task Audits*\n * Has the sub-task been closed?\n * Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed\nbelow.\n ** The parent issue also has a resolution that no work is needed.",
           "assignee":{
-            "name": Se
+            "name": Tl
           },
           "issuetype":{
             "name":"Sub-task"
@@ -1039,7 +1055,7 @@ window.onload = () => {
           "summary":"Unscripted Testing",
           "description":"h2. Overview\nUnscripted testing should be completed at the same time as code reviews are being performed.  This will allow your team to identify issues when code is still being actively developed.  It is the responsibility of the Engineer to setup a location where their changes can be easily tested by other associates.  Once setup is complete, details on how to access the testing environment should be provided in this sub-task.  When you are ready for unscripted testing to begin, @mention the associates you would like to assist you with testing.  Any issues identified should be addressed and re deployed back out to the testing environment.  Once all testers have completed their unscripted testing, they should leave a +1 comment on this sub-task to signify that they were able to test successfully.\n\n*Considerations*\n# If there is an equivalent workflow in Win64, be sure to include testing the equivalent steps/UI with unscripted testing.\n# Include all relevant associates in the unscripted testing session (up to and including subject-matter experts, strategists, UX designers, solution designers, and so on.\n\nh2. Acceptance Criteria\n# Setup a location where testing can take place\n# Detail any information needed by testers in this sub-task\n# Address issues as they are discovered by unscripted testers\n# Close the sub-task once all unscripted testers have given their +1 and the code has been finalized\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Unscripted Testing sub-task exist\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid? Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n* Has a +1 comment been provided by someone other than the sub-task assignee?",
           "assignee":{
-            "name": Epo
+            "name": Eta
           },
           "issuetype":{
             "name":"Sub-task"
@@ -1060,7 +1076,7 @@ window.onload = () => {
           "summary":"Validation Testing",
           "description":"h2. Overview\nOnce the code for a project has reached a location where validation testing can be performed, update the status of this sub-task to _In Progress_.  Run any validation tests necessary to cover the modifications made in this Story / Defect.  If an issue is discovered, update the status of the sub-task to 'Blocked' and log a [CERTMPAGES|https://jira.cerner.com/projects/CERTMPAGES] issue providing details on how to recreate it.  Be sure to link to the CERTMPAGES issue from this sub-task.  Once all validation testing has completed successfully and all CERTMPAGE issues are addressed, close this sub-task.\n\nh2. Acceptance Criteria\n# Update the status of this sub-task to _In Progress_\n# Run any validation tests which cover the functionality for the project\n# If issues are discovered, log a CERTMPAGES issue and link to it from this sub-task\n# Once all tests are run successfully and all CERTMPAGES issues are addressed, close this sub-task\n\nh2. Audits Performed\n*Parent Issue Audits*\n* Does the Validation Testing sub-task exist?\n\n*Sub-Task Audits*\n* Has the sub-task been closed?\n* Has a resolution been given that no work is needed on the sub-task (_Not Applicable_, _Duplicate_, etc...) and is it valid?  Valid scenarios are detailed below.\n** The parent issue also has a resolution that no work is needed.\n** A white box test plan has been developed, posted for review and executed under the Gray Box /  Formal White Box Testing sub-task.\n* If any CERTMPAGES issues are linked, are they closed?",
           "assignee":{
-            "name": Eta
+            "name": Ta
           },
           "issuetype":{
             "name":"Sub-task"

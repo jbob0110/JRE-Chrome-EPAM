@@ -4,6 +4,7 @@ var testAnalysts = [];
 var EPAMtestAnalysts = [];
 var softwareEngineers = [];
 var EPAMsoftwareEngineers = [];
+var teamLead = [];
 
 var isFirefox = typeof InstallTrigger !== 'undefined';
 window.onload = () => {
@@ -37,6 +38,12 @@ window.onload = () => {
       chrome.storage.sync.set({ ESEarray: EPAMsoftwareEngineers }, function () { console.log("Initial EPAM software engineer array save!"); });
     }
   });
+  chrome.storage.sync.get(['TLarray'], function (result) {
+    if (result.TLarray === undefined) {
+      chrome.storage.sync.set({ TLarray: teamLead }, function () { console.log("Initial team lead array save!"); });
+    }
+  });
+
 
   addPOs();
   addEPOs();
@@ -44,6 +51,7 @@ window.onload = () => {
   addETAs();
   addSEs();
   addESEs();
+  addEventListener();
   document.getElementById('addPO').onclick = () => {
     var name = document.getElementById("POname").value;
     var id = document.getElementById("POid").value;
@@ -148,6 +156,24 @@ window.onload = () => {
       }
     });
   }
+  document.getElementById('addETL').onclick = () => {
+    var name = document.getElementById("TLname").value;
+    chrome.storage.sync.get(['TLarray'], function (result) {
+      for (var i = 0; i < result.TLarray.length; i++) {
+        holder = result.TLarray[i].split(" :");
+        teamLead[holder[0]] = true;
+      }
+      if (teamLead[name] != undefined) {
+        alert("Name already on the list.");
+        document.getElementById('TLname').value = '';
+        document.getElementById('TLid').value = '';
+      } else {
+        teamLead[name] = true;
+        addNames('TLname', 'TLid', 'TLlist', document.getElementById('TLname').value + " :" + document.getElementById('TLid').value, teamLead, deleteTL);
+      }
+    });
+  }
+
 }
 function save_options() {
   if (isFirefox) {
@@ -157,7 +183,8 @@ function save_options() {
       TAarray: testAnalysts,
       ETAarray: EPAMtestAnalysts,
       SEarray: softwareEngineers,
-      ESEarray: EPAMsoftwareEngineers
+      ESEarray: EPAMsoftwareEngineers,
+      TLarray: teamLead
     }, function () {
       console.log("Settings Saved")
     });
@@ -168,7 +195,8 @@ function save_options() {
       TAarray: testAnalysts,
       ETAarray: EPAMtestAnalysts,
       SEarray: softwareEngineers,
-      ESEarray: EPAMsoftwareEngineers
+      ESEarray: EPAMsoftwareEngineers,
+      TLarray: teamLead
     }, function () {
       console.log("Settings Saved");
     });
@@ -330,6 +358,32 @@ function deleteESE(e) {
   }
   save_options();
 }
+function deleteTL(e) {
+  var closebtns = document.getElementsByClassName("close");
+  for (i = 0; i < teamLead.length; i++) {
+    if (!isFirefox) {
+      if (teamLead[i] === e.path[1].innerHTML) {
+        var holder = teamLead[i].split(" :");
+        teamLead[holder[0]] = undefined;
+        teamLead.splice(i, 1);
+        break;
+      }
+    } else {
+      if (teamLead[i] === e.originalTarget.parentElement.innerHTML) {
+        var holder = teamLead[i].split(" :");
+        teamLead[holder[0]] = undefined;
+        teamLead.splice(i, 1);
+        break;
+      }
+    }
+  }
+  if (!isFirefox) {
+    e.path[1].style.display = "none";
+  } else {
+    e.originalTarget.parentElement.style.display = "none";
+  }
+  save_options();
+}
 function addPOs() {
   chrome.storage.sync.get(['POarray'], function (result) {
     for (var i = 0; i < result.POarray.length; i++) {
@@ -375,6 +429,14 @@ function addESEs() {
     for (var i = 0; i < result.ESEarray.length; i++) {
       result.ESEarray[i] = result.ESEarray[i].split("<sp")[0];
       addNames('ESEname', 'ESEid', 'ESElist', result.ESEarray[i], EPAMsoftwareEngineers, deleteESE);
+    }
+  });
+}
+function addTLs() {
+  chrome.storage.sync.get(['TLarray'], function (result) {
+    for (var i = 0; i < result.TLarray.length; i++) {
+      result.TLarray[i] = result.TLarray[i].split("<sp")[0];
+      addNames('TLname', 'TLid', 'TLlist', result.TLarray[i], teamLead, deleteTL);
     }
   });
 }
