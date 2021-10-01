@@ -120,12 +120,12 @@ chrome.storage.sync.get(['ESEarray'], function(result) {
 }
 );
 
-chrome.storage.sync.get(['TLEarray'], function(result) {
+chrome.storage.sync.get(['TLarray'], function(result) {
   var x = document.getElementById("TLs");
   var option, split;
-  for(var i = 0; i< result.TLEarray.length; i++){
+  for(var i = 0; i< result.TLarray.length; i++){
     option = document.createElement("option");
-    split = result.TLEarray[i].split("<spa");
+    split = result.TLarray[i].split("<spa");
     split = split[0].split(" :");
     option.text = split[0];
     option.value = split[1];
