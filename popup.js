@@ -406,6 +406,7 @@ window.onload = () => {
       var Eta = document.getElementById('ETAs').value;
       var Se = document.getElementById('SEs').value;
       var Ese = document.getElementById('ESEs').value;
+      var Tl = document.getElementById('TLs').value;
       console.log("PO: "+Po);
       console.log("EPO: "+Epo);
       console.log("TA: "+Ta);
@@ -740,6 +741,7 @@ window.onload = () => {
       var Eta = document.getElementById('ETAs').value;
       var Se = document.getElementById('SEs').value;
       var Ese = document.getElementById('ESEs').value;
+      var Tl = document.getElementById('TLs').value;
       console.log("PO: "+Po);
       console.log("EPO: "+Epo);
       console.log("TA: "+Ta);
