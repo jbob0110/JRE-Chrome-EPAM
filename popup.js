@@ -21,7 +21,7 @@ function getURLs(url){
   var regexGroups = {
     jIns: 1,
     jKey: 2,
-    pKey: 3
+    pKey: 3,
   };
   var m = re.exec(url);
   jiraKey = m[regexGroups.jKey];
@@ -39,13 +39,15 @@ function checkAsynRequestCount(){
 chrome.storage.sync.get(['POarray'], function (result) {
   var x = document.getElementById("POs");
   var option;
-  for (var i = 0; i< result.POarray.length; i++){
-    option = document.createElement("option");
-    var split = result.POarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+  if(result.POarray){
+    for (var i = 0; i< result.POarray.length; i++){
+      option = document.createElement("option");
+      var split = result.POarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
@@ -53,69 +55,79 @@ chrome.storage.sync.get(['POarray'], function (result) {
 chrome.storage.sync.get(['EPOarray'], function (result) {
   var x = document.getElementById("EPOs");
   var option;
-  for (var i = 0; i< result.EPOarray.length; i++){
-    option = document.createElement("option");
-    var split = result.EPOarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+  if(result.EPOarray){
+    for (var i = 0; i< result.EPOarray.length; i++){
+      option = document.createElement("option");
+      var split = result.EPOarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
 
-chrome.storage.sync.get(['TAarray'], function(result) {
+chrome.storage.sync.get(['TAarray'], function (result) {
   var x = document.getElementById("TAs");
-  var option, split;
-  for(var i = 0; i< result.TAarray.length; i++){
-    option = document.createElement("option");
-    split = result.TAarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+  var option;
+  if(result.TAarray){
+    for (var i = 0; i< result.TAarray.length; i++){
+      option = document.createElement("option");
+      var split = result.TAarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
 
-chrome.storage.sync.get(['ETAarray'], function(result) {
+chrome.storage.sync.get(['ETAarray'], function (result) {
   var x = document.getElementById("ETAs");
-  var option, split;
-  for(var i = 0; i< result.ETAarray.length; i++){
-    option = document.createElement("option");
-    split = result.ETAarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+  var option;
+  if(result.ETAarray){
+    for (var i = 0; i< result.ETAarray.length; i++){
+      option = document.createElement("option");
+      var split = result.ETAarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
 
-chrome.storage.sync.get(['SEarray'], function(result) {
-  var x = document.getElementById("SEs");
-  var option, split;
-  for(var i = 0; i< result.SEarray.length; i++){
-    option = document.createElement("option");
-    split = result.SEarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+chrome.storage.sync.get(['SEarray'], function (result) {
+  var x = document.getElementById("SEAs");
+  var option;
+  if(result.SEarray){
+    for (var i = 0; i< result.SEarray.length; i++){
+      option = document.createElement("option");
+      var split = result.SEarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
 
-chrome.storage.sync.get(['ESEarray'], function(result) {
-  var x = document.getElementById("ESEs");
-  var option, split;
-  for(var i = 0; i< result.ESEarray.length; i++){
-    option = document.createElement("option");
-    split = result.ESEarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+chrome.storage.sync.get(['ESEarray'], function (result) {
+  var x = document.getElementById("SEEAs");
+  var option;
+  if(result.ESEarray){
+    for (var i = 0; i< result.ESEarray.length; i++){
+      option = document.createElement("option");
+      var split = result.ESEarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    } 
   }
 }
 );
@@ -123,13 +135,15 @@ chrome.storage.sync.get(['ESEarray'], function(result) {
 chrome.storage.sync.get(['TLarray'], function(result) {
   var x = document.getElementById("TLs");
   var option, split;
-  for(var i = 0; i< result.TLarray.length; i++){
-    option = document.createElement("option");
-    split = result.TLarray[i].split("<spa");
-    split = split[0].split(" :");
-    option.text = split[0];
-    option.value = split[1];
-    x.add(option);
+  if(result.TLarray){
+    for(var i = 0; i< result.TLarray.length; i++){
+      option = document.createElement("option");
+      split = result.TLarray[i].split("<spa");
+      split = split[0].split(" :");
+      option.text = split[0];
+      option.value = split[1];
+      x.add(option);
+    }
   }
 }
 );
@@ -139,7 +153,6 @@ function addSubTask(subtask){
   var xhr = new XMLHttpRequest;
   xhr.open("POST", "https://"+jiraInstance+".cerner.com/rest/api/2/issue/");
   xhr.setRequestHeader("Content-Type","application/json");
-  xhr.setRequestHeader("User-Agent", "plugin agent");
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       console.log(xhr.responseText);
@@ -183,7 +196,7 @@ window.onload = () => {
         },
         "issuetype":{
           "name":"Sub-task"
-        }
+        },
       }
     }
     );
