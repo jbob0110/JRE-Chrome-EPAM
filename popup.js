@@ -21,7 +21,7 @@ function getURLs(url){
   var regexGroups = {
     jIns: 1,
     jKey: 2,
-    pKey: 3,
+    pKey: 3
   };
   var m = re.exec(url);
   jiraKey = m[regexGroups.jKey];
