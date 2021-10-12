@@ -117,7 +117,7 @@ chrome.storage.sync.get(['SEarray'], function (result) {
 );
 
 chrome.storage.sync.get(['ESEarray'], function (result) {
-  var x = document.getElementById("SEEAs");
+  var x = document.getElementById("ESEs");
   var option;
   if(result.ESEarray){
     for (var i = 0; i< result.ESEarray.length; i++){
