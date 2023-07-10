@@ -806,257 +806,257 @@ window.onload = () => {
     console.log("TL: "+Tl);
     document.getElementById('loader').style.display = "block";
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Define Requirements",
-    //     "description":"h2. Overview\nWork with strategists, stakeholders and the development team to define requirements for this project. Once ready for review, attach the requirements documentation to the sub-task and request reviewers by @mentioning them. Once posted for review update the status of the sub-task to _In Review_.\n\nh2. Acceptance Criteria\n # Post the completed Project Requirement for Jazz review\n # Address comments as they are provided by reviewers\n # Close the sub-task once reviewers have given their +1 and requirements have been finalized",
-    //     "assignee":{
-    //       "name": Po
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Define Requirements request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Define Requirements",
+        "description":"h2. Overview\nWork with strategists, stakeholders and the development team to define requirements for this project. Once ready for review, attach the requirements documentation to the sub-task and request reviewers by @mentioning them. Once posted for review update the status of the sub-task to _In Review_.\n\nh2. Acceptance Criteria\n # Post the completed Project Requirement for Jazz review\n # Address comments as they are provided by reviewers\n # Close the sub-task once reviewers have given their +1 and requirements have been finalized",
+        "assignee":{
+          "name": Po
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Define Requirements request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Perform Hazard Analysis",
-    //     "description":"h2. Overview\nWork with the Agile team to determine if the story impacts any of the following Hazards. Reference our current wiki page for our existing <Hazard Analysis document link>.\nh2. Acceptance Criteria:\n* Document with a Yes or No if your story impacts any of the following hazard types. If yes, explain why.\n** Financial: <yes or no. If yes, explain why>\n** Legal/Regulatory: <yes or no. If yes, explain why>\n** Data Integrity: <yes or no. If yes, explain why>\n** Patient Safety: <yes or no. If yes, explain why>\n** CyberSecurity/Information Security: <yes or no. If yes, explain why>\n* Engineer assigned to the project has added a +1 indicating that they discussed the impact this story has with regard to Hazards and agrees with the assessment.",
-    //     "assignee":{
-    //       "name": Po
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Perform Hazard Analysis request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Perform Hazard Analysis",
+        "description":"h2. Overview\nWork with the Agile team to determine if the story impacts any of the following Hazards. Reference our current wiki page for our existing <Hazard Analysis document link>.\nh2. Acceptance Criteria:\n* Document with a Yes or No if your story impacts any of the following hazard types. If yes, explain why.\n** Financial: <yes or no. If yes, explain why>\n** Legal/Regulatory: <yes or no. If yes, explain why>\n** Data Integrity: <yes or no. If yes, explain why>\n** Patient Safety: <yes or no. If yes, explain why>\n** CyberSecurity/Information Security: <yes or no. If yes, explain why>\n* Engineer assigned to the project has added a +1 indicating that they discussed the impact this story has with regard to Hazards and agrees with the assessment.",
+        "assignee":{
+          "name": Po
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Perform Hazard Analysis request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Technical Design Document",
-    //     "description":"h2. Overview\nCreate a technical design document outlining your proposed changes for this story. When writing your technical design document you can utilize either the [Microsoft Word Technical Design Template|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template] or in the [wiki|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template]. Once posted for review, update the status of the sub-task to {_}In Review{_}. Once all reviews are completed and the technical design document has been finalized, close the sub-task.\nh2. Acceptance Criteria\n# Write the technical design document outlining your proposed changes.\n# Write the Root cause Analysis in both the wiki and Root Cause Tab\n# If using the [wiki|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template]\n## Attach the completed document wiki link to this sub-task for review\n## Address comments as they are provided by reviewers \n# Close the sub-task once all reviewers have completed their reviews and the technical design document has been finalized\n",
-    //     "assignee":{
-    //       "name": Se
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Technical Design Document request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Technical Design Document",
+        "description":"h2. Overview\nCreate a technical design document outlining your proposed changes for this story. When writing your technical design document you can utilize either the [Microsoft Word Technical Design Template|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template] or in the [wiki|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template]. Once posted for review, update the status of the sub-task to {_}In Review{_}. Once all reviews are completed and the technical design document has been finalized, close the sub-task.\nh2. Acceptance Criteria\n# Write the technical design document outlining your proposed changes.\n# Write the Root cause Analysis in both the wiki and Root Cause Tab\n# If using the [wiki|https://wiki.cerner.com/display/public/IPDevConDoc/MPages+Platform+Development+Technical+Design+Template]\n## Attach the completed document wiki link to this sub-task for review\n## Address comments as they are provided by reviewers \n# Close the sub-task once all reviewers have completed their reviews and the technical design document has been finalized\n",
+        "assignee":{
+          "name": Se
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Technical Design Document request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Code Development",
-    //     "description":"h2. Overview\nAs you work through the implementation of this project, create code reviews for any artifacts you've made modifications to. Reviews can be held in either Crucible or GitHub and should be linked to from this sub-task using a{_}Web Link{_}. Once you've posted code for review, update the status of this sub-task to{_}In Review{_}. Once you've made all necessary changes and closed/merged your reviews, close the sub-task.\nh2. Acceptance Criteria\n# Implement the change needed for the Story / Defect\n# Create code reviews and pull requests so others can review your work\n# Update the status of this sub-task to_In Review_\n# Address comments as they are provided and post additional commits as necessary\n# Close / Merge reviews as they are completed\n# Close this sub-task once all reviews are completed\n",
-    //     "assignee":{
-    //       "name": Se
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Code Development request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Code Development",
+        "description":"h2. Overview\nAs you work through the implementation of this project, create code reviews for any artifacts you've made modifications to. Reviews can be held in either Crucible or GitHub and should be linked to from this sub-task using a{_}Web Link{_}. Once you've posted code for review, update the status of this sub-task to{_}In Review{_}. Once you've made all necessary changes and closed/merged your reviews, close the sub-task.\nh2. Acceptance Criteria\n# Implement the change needed for the Story / Defect\n# Create code reviews and pull requests so others can review your work\n# Update the status of this sub-task to_In Review_\n# Address comments as they are provided and post additional commits as necessary\n# Close / Merge reviews as they are completed\n# Close this sub-task once all reviews are completed\n",
+        "assignee":{
+          "name": Se
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Code Development request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Unit and White Box Testing",
-    //     "description":"h2. Overview\nWrite any necessary unit tests for code being introduced or altered which cover all logic paths and boundary conditions. If time permits, perform additional unit testing on existing code which is not currently covered. Once you've completed unit testing, create a pull request to review the updates and add a _Web Link_ to it in this sub-task. Be sure to attach the evidence ZIP file of a successful unit test run and code coverage to the pull request. Once posted for review update the status of the sub-task to In {_}Review{_}.\nh2. Acceptance Criteria\n# Write the unit tests which cover all logic paths and boundary conditions for any code being introduced or altered\n# Create a pull request in the necessary repository and add a _Web Link_ to it in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull request\n# Close the sub-task",
-    //     "assignee":{
-    //       "name": Se
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Unit and White Box Testing request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Unit and White Box Testing",
+        "description":"h2. Overview\nWrite any necessary unit tests for code being introduced or altered which cover all logic paths and boundary conditions. If time permits, perform additional unit testing on existing code which is not currently covered. Once you've completed unit testing, create a pull request to review the updates and add a _Web Link_ to it in this sub-task. Be sure to attach the evidence ZIP file of a successful unit test run and code coverage to the pull request. Once posted for review update the status of the sub-task to In {_}Review{_}.\nh2. Acceptance Criteria\n# Write the unit tests which cover all logic paths and boundary conditions for any code being introduced or altered\n# Create a pull request in the necessary repository and add a _Web Link_ to it in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull request\n# Close the sub-task",
+        "assignee":{
+          "name": Se
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Unit and White Box Testing request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Test Case Design and Test Case Tracing",
-    //     "description":"h2. Overview\nOnce test plans have been created, reviewed and uploaded to the appropriate location, update all requirements pages with links to the test plans that cover the listed requirement for this project. Once completed, add _Web Links_ to this sub-task linking out to the requirements documents that were updated.\nTest plan tracing should be completed for the following test types:\n* Manual Vertical Regression Test Plans\n* Manual SBET Test Plans\n* Manual UI Test Plans\nh2. Acceptance Criteria\n# Create a manual test case  to complete the review\n# Identify test plan designs that need to be modified or created\n# Add _Web Links_ to each page that is being updated\n** If no updates were necessary, add _Web Links_ to the existing test plan designs which cover the functionality of this project\n# Close the sub-task once reviewers have given their +1 and the test plan designs have been finalized\n** If no updates were necessary, reviewers will be giving a +1 that all functionality is covered in the existing pages\n# Update all requirements wikis with links to the test plans that cover the requirements listed for this project.\n# Add a _Web Link_ to this sub-task for each requirements page updated. Close the Subtask\n",
-    //     "assignee":{
-    //       "name": Ta
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Test Case Design and Test Case Tracing request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Test Case Design and Test Case Tracing",
+        "description":"h2. Overview\nOnce test plans have been created, reviewed and uploaded to the appropriate location, update all requirements pages with links to the test plans that cover the listed requirement for this project. Once completed, add _Web Links_ to this sub-task linking out to the requirements documents that were updated.\nTest plan tracing should be completed for the following test types:\n* Manual Vertical Regression Test Plans\n* Manual SBET Test Plans\n* Manual UI Test Plans\nh2. Acceptance Criteria\n# Create a manual test case  to complete the review\n# Identify test plan designs that need to be modified or created\n# Add _Web Links_ to each page that is being updated\n** If no updates were necessary, add _Web Links_ to the existing test plan designs which cover the functionality of this project\n# Close the sub-task once reviewers have given their +1 and the test plan designs have been finalized\n** If no updates were necessary, reviewers will be giving a +1 that all functionality is covered in the existing pages\n# Update all requirements wikis with links to the test plans that cover the requirements listed for this project.\n# Add a _Web Link_ to this sub-task for each requirements page updated. Close the Subtask\n",
+        "assignee":{
+          "name": Ta
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Test Case Design and Test Case Tracing request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Automate Test Case",
-    //     "description":"h2. Overview\nMultiple types of testing may need to be created to cover all of the changes for this Story / Defect. Follow the guidance below to determine what steps should be taken based on the test type.\n*Automated Test Plans*\nIf creating automated test plans, perform the code changes and create a pull request for each test being modified. For each pull request add a _Web Link_ to it in this sub-task. Update the status of the sub-task to {_}In Review{_}. Once all reviews are merged, close the sub-task\nh2. Acceptance Criteria\n*Automated Test Plans*\n# Write the automated tests(Eggplant/ Touchstone) which cover the changes being made in this story\n# Create a pull request in the necessary repositories and add _Web Links_ to them in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull requests\n# Close the sub-task",
-    //     "assignee":{
-    //       "name": Ta
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Automate Test Case request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Automate Test Case",
+        "description":"h2. Overview\nMultiple types of testing may need to be created to cover all of the changes for this Story / Defect. Follow the guidance below to determine what steps should be taken based on the test type.\n*Automated Test Plans*\nIf creating automated test plans, perform the code changes and create a pull request for each test being modified. For each pull request add a _Web Link_ to it in this sub-task. Update the status of the sub-task to {_}In Review{_}. Once all reviews are merged, close the sub-task\nh2. Acceptance Criteria\n*Automated Test Plans*\n# Write the automated tests(Eggplant/ Touchstone) which cover the changes being made in this story\n# Create a pull request in the necessary repositories and add _Web Links_ to them in this sub-task\n# Address comments as they are provided by reviewers\n# Merge your pull requests\n# Close the sub-task",
+        "assignee":{
+          "name": Ta
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Automate Test Case request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Certification Guidelines and Techwriter request",
-    //     "description":"h2. Overview\nFor client-viewable solution changes, a certification guideline detailing how clients will test enhancements/defects is needed. Create the appropriate document outlining the necessary steps for client testing. Once ready for review, attach the certification guideline to the sub-task and request reviewers by @mentioning them. Once posted for review update the status of the sub-task to _In Review_ Acceptance Criteria.\nPrior to delivering projects to clients, we must ensure all of our documentation is complete and accurate. We employ the assistance of Technical Writers to help us with this. If any of the following documents are being created or modified a [PRODOC|https://jira.cerner.com/projects/PRODOC] issue should be logged so they can be reviewed by a Technical Writer.\n* Certification Guideline\n* Reference Pages\n* Help Pages\nh2. Acceptance Criteria\n# Write the certification guideline testing steps\n# Attach the completed document to this sub-task for review\n# Address comments as they are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the certification guideline has been finalized\n# Create the PRODOC JIRA issue. Attach any certification guideline documents for review\n# Add _Web Link_ links to any reference or help pages that have been created or modified\n# Link to the created PRODOC issue from this sub-task using the _JIRA Issue_ link type\n** Be sure to select _JIRA_ from the _Server_ drop-down selection\n# Close this sub-task",
-    //     "assignee":{
-    //       "name": Po
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Certification Guidelines and Techwriter request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Certification Guidelines and Techwriter request",
+        "description":"h2. Overview\nFor client-viewable solution changes, a certification guideline detailing how clients will test enhancements/defects is needed. Create the appropriate document outlining the necessary steps for client testing. Once ready for review, attach the certification guideline to the sub-task and request reviewers by @mentioning them. Once posted for review update the status of the sub-task to _In Review_ Acceptance Criteria.\nPrior to delivering projects to clients, we must ensure all of our documentation is complete and accurate. We employ the assistance of Technical Writers to help us with this. If any of the following documents are being created or modified a [PRODOC|https://jira.cerner.com/projects/PRODOC] issue should be logged so they can be reviewed by a Technical Writer.\n* Certification Guideline\n* Reference Pages\n* Help Pages\nh2. Acceptance Criteria\n# Write the certification guideline testing steps\n# Attach the completed document to this sub-task for review\n# Address comments as they are provided by reviewers\n# Close the sub-task once reviewers have given their +1 and the certification guideline has been finalized\n# Create the PRODOC JIRA issue. Attach any certification guideline documents for review\n# Add _Web Link_ links to any reference or help pages that have been created or modified\n# Link to the created PRODOC issue from this sub-task using the _JIRA Issue_ link type\n** Be sure to select _JIRA_ from the _Server_ drop-down selection\n# Close this sub-task",
+        "assignee":{
+          "name": Po
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Certification Guidelines and Techwriter request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Complete Design IO Form",
-    //     "description":"h2. Overview\nWhen finishing up a project we must document certain steps of the software development process to abide by federal regulations. In order to do this we create and fill out a Design Input / Output form with project identifiers, links to locations where work has been completed and any other materials which show a development process was followed. Ensure the following information is provided in the Design Input / Output Issue:\n*General Tab*\n* Solution\n* Solution Details\n* JIRA Group\n* Project identifiers\n*Design Input Tab*\n* Requirements: Provide links to the 'Define Requirements' sub-tasks for this project* Project Traceability: Provide links to the 'Define Requirements' sub-tasks for this project since they provide direct access to the requirements and/or hazards that apply to the project.\n*Design Output Tab*\n* Technical Design Document: Provide links to any technical design document reviews for the project\n* Source Code: Provide links to any code reviews for the project\nAdditionally, you should check the Approvals tab to make sure all signatures have been gathered.\nh2. Acceptance Criteria\n# Ensure this project has an associated Design IO form\n** The Design IO form should be linked in the parent Story / Defect or possibly in an ancestral Epic.\n# Check that all of the Design IO tabs are filled our appropriately\n# Ensure all signatures have been collected\n# Close this sub-task once all details have been documented for this Story / Defect\n",
-    //     "assignee":{
-    //       "name": Po
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Complete Design IO Form request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Complete Design IO Form",
+        "description":"h2. Overview\nWhen finishing up a project we must document certain steps of the software development process to abide by federal regulations. In order to do this we create and fill out a Design Input / Output form with project identifiers, links to locations where work has been completed and any other materials which show a development process was followed. Ensure the following information is provided in the Design Input / Output Issue:\n*General Tab*\n* Solution\n* Solution Details\n* JIRA Group\n* Project identifiers\n*Design Input Tab*\n* Requirements: Provide links to the 'Define Requirements' sub-tasks for this project* Project Traceability: Provide links to the 'Define Requirements' sub-tasks for this project since they provide direct access to the requirements and/or hazards that apply to the project.\n*Design Output Tab*\n* Technical Design Document: Provide links to any technical design document reviews for the project\n* Source Code: Provide links to any code reviews for the project\nAdditionally, you should check the Approvals tab to make sure all signatures have been gathered.\nh2. Acceptance Criteria\n# Ensure this project has an associated Design IO form\n** The Design IO form should be linked in the parent Story / Defect or possibly in an ancestral Epic.\n# Check that all of the Design IO tabs are filled our appropriately\n# Ensure all signatures have been collected\n# Close this sub-task once all details have been documented for this Story / Defect\n",
+        "assignee":{
+          "name": Po
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Complete Design IO Form request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Unscripted Testing",
-    //     "description":"h2. Overview\nUnscripted testing should be completed at the same time as code reviews are being performed. This will allow your team to identify issues when code is still being actively developed. It is the responsibility of the Engineer to setup a location where their changes can be easily tested by other associates. Once setup is complete, details on how to access the testing environment should be provided in this sub-task. When you are ready for unscripted testing to begin, @mention the associates you would like to assist you with testing. Any issues identified should be addressed and re-deployed back out to the testing environment. Once all testers have completed their unscripted testing, they should leave a +1 comment on this sub-task to signify that they were able to test successfully.\n*Considerations*\n# If there is an equivalent workflow in Win64, be sure to include testing the equivalent steps/UI with unscripted testing.\n# Include all relevant associates in the unscripted testing session (up to and including subject-matter experts, strategists, UX designers, solution designers, and so on.\nh2. Acceptance Criteria\n# Setup a location where testing can take place\n# Detail any information needed by testers in this sub-task\n# Address issues as they are discovered by unscripted testers\n# Close the sub-task once all unscripted testers have given their +1 and the code has been finalized\n",
-    //     "assignee":{
-    //       "name": Ta
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Unscripted Testing request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Unscripted Testing",
+        "description":"h2. Overview\nUnscripted testing should be completed at the same time as code reviews are being performed. This will allow your team to identify issues when code is still being actively developed. It is the responsibility of the Engineer to setup a location where their changes can be easily tested by other associates. Once setup is complete, details on how to access the testing environment should be provided in this sub-task. When you are ready for unscripted testing to begin, @mention the associates you would like to assist you with testing. Any issues identified should be addressed and re-deployed back out to the testing environment. Once all testers have completed their unscripted testing, they should leave a +1 comment on this sub-task to signify that they were able to test successfully.\n*Considerations*\n# If there is an equivalent workflow in Win64, be sure to include testing the equivalent steps/UI with unscripted testing.\n# Include all relevant associates in the unscripted testing session (up to and including subject-matter experts, strategists, UX designers, solution designers, and so on.\nh2. Acceptance Criteria\n# Setup a location where testing can take place\n# Detail any information needed by testers in this sub-task\n# Address issues as they are discovered by unscripted testers\n# Close the sub-task once all unscripted testers have given their +1 and the code has been finalized\n",
+        "assignee":{
+          "name": Ta
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Unscripted Testing request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Validation Testing",
-    //     "description":"h2. Overview\nOnce the code for a project has reached a location where validation testing can be performed, update the status of this sub-task to {_}In Progress{_}. Run any validation tests necessary to cover the modifications made in this Story / Defect. Once all validation testing has been completed successfully. close this sub-task.\nh2. Acceptance Criteria\n# Update the status of this sub-task to _In Progress_\n# Run any validation tests which cover the functionality of the project.\n# Attach the Test plan and Test execution record link for the project and get +1 for the peer review.\n# Once all tests are run successfully. close this sub-task.\n",
-    //     "assignee":{
-    //       "name": Ta
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Validation Testing request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Validation Testing",
+        "description":"h2. Overview\nOnce the code for a project has reached a location where validation testing can be performed, update the status of this sub-task to {_}In Progress{_}. Run any validation tests necessary to cover the modifications made in this Story / Defect. Once all validation testing has been completed successfully. close this sub-task.\nh2. Acceptance Criteria\n# Update the status of this sub-task to _In Progress_\n# Run any validation tests which cover the functionality of the project.\n# Attach the Test plan and Test execution record link for the project and get +1 for the peer review.\n# Once all tests are run successfully. close this sub-task.\n",
+        "assignee":{
+          "name": Ta
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Validation Testing request sent");
 
-    // addSubTask({
-    //   "fields":{
-    //     "project":{
-    //       "key": project
-    //     },
-    //     "parent":{
-    //       "key": jiraKey
-    //     },
-    //     "summary":"Story Review or Merge Code",
-    //     "description":"h2. Overview\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n# Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n# Merge any features associated with this Story / Defect\n# Close this sub-task",
-    //     "assignee":{
-    //       "name": Tl
-    //     },
-    //     "issuetype":{
-    //       "name":"Sub-task"
-    //     }
-    //   }
-    // }
-    // );
-    // console.log("Story Review or Merge Code request sent");
+    addSubTask({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "parent":{
+          "key": jiraKey
+        },
+        "summary":"Story Review or Merge Code",
+        "description":"h2. Overview\nThe team lead should perform an evaluation of the story to ensure all work was completed as per the Powerchart framework development process and all evidence created when executing that process is discoverable. Once confirmed, merge any features which are ready for validation testing. Once all features have merged, close this sub-task.\nh2. Acceptance Criteria\n# Evaluate the story to ensure the Powerchart development process was followed and all evidence is discoverable\n# Merge any features associated with this Story / Defect\n# Close this sub-task",
+        "assignee":{
+          "name": Tl
+        },
+        "issuetype":{
+          "name":"Sub-task"
+        }
+      }
+    }
+    );
+    console.log("Story Review or Merge Code request sent");
 
   };
 
@@ -1068,4 +1068,3 @@ window.onload = () => {
     }
   };
 }
-

@@ -1,0 +1,39 @@
+.optionsTitle {
+   background-color: #C74634;
+   padding: 10px;
+   border-radius: 10px;
+   color: whitesmoke;
+   text-align: center;
+   font-size: 28px;
+   font-family: serif ;
+   display: block;
+   max-width: 500px;
+   margin: auto;
+}
+
+.content {
+   max-width: 500px;
+   margin: auto;
+   display: block;
+   color: #312D2A
+ }
+
+ #spacer {
+   border-top: 3px solid #C74634;
+ }
+
+ .close {
+   float: left;
+   cursor: pointer;
+}
+
+#clearSyncStorage {
+  display: block;
+   background-color: #C74634;
+   color: white;
+}
+
+.addbtn {
+  background-color: #312D2A;
+   color: white;
+}

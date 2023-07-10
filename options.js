@@ -98,7 +98,17 @@ window.onload = () => {
       }
     });
   }
+  document.getElementById('clearSyncStorage').onclick = () => {
+    chrome.storage.sync.clear(function() {
+      var error = chrome.runtime.lastError;
+        if (error) {
+          console.error(error);
+        }
+     });
+     location.reload();
+  }
 }
+
 function save_options() {
   if (isFirefox) {
     browser.storage.sync.set({
