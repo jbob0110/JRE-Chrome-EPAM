@@ -12,26 +12,18 @@
       <div class="title">JSE</div>
       <div class="rightNav">
           <div class="tab">
-            <input id="scYes" class="submit" type="submit" name="scyes" value="APPFRAME">
-            <input id="scYesEDM" class="submit" type="submit" name="scyes" value="EDM">
             <input id="scYesPCFRAMEStory" class="submit" type="submit" name="scyes" value="PCFRAME Story">
             <input id="scYesPCFRAMEDefect" class="submit" type="submit" name="scyes" value="PCFRAME Defect">
+            <input id="scYesWIN" class="submit" type="submit" name="scyes" value="WIN">
             <input id="options" class="submit" type="submit" name="options" value="Options">
-          </div>
+            <div class="loader" id="loader"></div>
+         </div>
       </div>
       <div class="content">
          <div id="listPOs">
             <form id="select">
                <p class="select">Select PO: </p>
                <select id="POs">
-                  <option value="">None</option>
-               </select>
-            </form>
-         </div>
-         <div id="listEPOs">
-            <form id="select">
-               <p class="select">Select EPAM BA: </p>
-               <select id="EPOs">
                   <option value="">None</option>
                </select>
             </form>
@@ -44,14 +36,6 @@
                </select>
             </form>
          </div>
-         <div id="listETAs">
-            <form id="select">
-               <p class="select">Select EPAM AQA: </p>
-               <select id="ETAs">
-                  <option value="">None</option>
-               </select>
-            </form>
-         </div>
          <div id="listSEs">
             <form id="select">
                <p class="select">Select SE: </p>
@@ -60,23 +44,15 @@
                </select>
             </form>
          </div>
-         <div id="listESEs">
-            <form id="select">
-               <p class="select">Select EPAM SE: </p>
-               <select id="ESEs">
-                  <option value="">None</option>
-               </select>
-            </form>
-         </div>
          <div id="listTLs">
             <form id="select">
-               <p class="select">Select Team Lead: </p>
+               <p class="select">Select TL: </p>
                <select id="TLs">
                   <option value="">None</option>
                </select>
             </form>
          </div>
-         <div class="loader" id="loader"></div>
+         <!-- <div class="loader" id="loader"></div> -->
       </div>
    </div>
 </body>
