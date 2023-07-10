@@ -34,7 +34,7 @@ window.onload = () => {
     var id = document.getElementById("POid").value;
     chrome.storage.sync.get(['POarray'], function (result) {
       for (var i = 0; i < result.POarray.length; i++) {
-        holder = result.POarray[i].split(" :");
+        holder = result.POarray[i].split(": ");
         productOwners[holder[0]] = true;
       }
       if (productOwners[name] != undefined) {
@@ -43,7 +43,7 @@ window.onload = () => {
         document.getElementById('POid').value = '';
       } else {
         productOwners[name] = true;
-        addNames('POname', 'POid', 'POlist', document.getElementById('POname').value + " :" + document.getElementById('POid').value, productOwners, deletePO);
+        addNames('POname', 'POid', 'POlist', document.getElementById('POname').value + ": " + document.getElementById('POid').value, productOwners, deletePO);
       }
     });
   }
@@ -51,7 +51,7 @@ window.onload = () => {
     var name = document.getElementById("TAname").value;
     chrome.storage.sync.get(['TAarray'], function (result) {
       for (var i = 0; i < result.TAarray.length; i++) {
-        holder = result.TAarray[i].split(" :");
+        holder = result.TAarray[i].split(": ");
         testAnalysts[holder[0]] = true;
       }
       if (testAnalysts[name] != undefined) {
@@ -60,7 +60,7 @@ window.onload = () => {
         document.getElementById('TAid').value = '';
       } else {
         testAnalysts[name] = true;
-        addNames('TAname', 'TAid', 'TAlist', document.getElementById('TAname').value + " :" + document.getElementById('TAid').value, testAnalysts, deleteTA);
+        addNames('TAname', 'TAid', 'TAlist', document.getElementById('TAname').value + ": " + document.getElementById('TAid').value, testAnalysts, deleteTA);
       }
     });
   }
@@ -68,7 +68,7 @@ window.onload = () => {
     var name = document.getElementById("SEname").value;
     chrome.storage.sync.get(['SEarray'], function (result) {
       for (var i = 0; i < result.SEarray.length; i++) {
-        holder = result.SEarray[i].split(" :");
+        holder = result.SEarray[i].split(": ");
         softwareEngineers[holder[0]] = true;
       }
       if (softwareEngineers[name] != undefined) {
@@ -77,7 +77,7 @@ window.onload = () => {
         document.getElementById('SEid').value = '';
       } else {
         softwareEngineers[name] = true;
-        addNames('SEname', 'SEid', 'SElist', document.getElementById('SEname').value + " :" + document.getElementById('SEid').value, softwareEngineers, deleteSE);
+        addNames('SEname', 'SEid', 'SElist', document.getElementById('SEname').value + ": " + document.getElementById('SEid').value, softwareEngineers, deleteSE);
       }
     });
   }
@@ -85,7 +85,7 @@ window.onload = () => {
     var name = document.getElementById("TLname").value;
     chrome.storage.sync.get(['TLarray'], function (result) {
       for (var i = 0; i < result.TLarray.length; i++) {
-        holder = result.TLarray[i].split(" :");
+        holder = result.TLarray[i].split(": ");
         teamLead[holder[0]] = true;
       }
       if (teamLead[name] != undefined) {
@@ -94,7 +94,7 @@ window.onload = () => {
         document.getElementById('TLid').value = '';
       } else {
         teamLead[name] = true;
-        addNames('TLname', 'TLid', 'TLlist', document.getElementById('TLname').value + " :" + document.getElementById('TLid').value, teamLead, deleteTL);
+        addNames('TLname', 'TLid', 'TLlist', document.getElementById('TLname').value + ": " + document.getElementById('TLid').value, teamLead, deleteTL);
       }
     });
   }
@@ -282,3 +282,11 @@ function addNames(name, id, pointer, text, array, deleter) {
   save_options();
 }
 
+ function clearSyncStorage(){
+  chrome.storage.sync.clear(function() {
+    var error = chrome.runtime.lastError;
+      if (error) {
+        console.error(error);
+      }
+   })
+ }
