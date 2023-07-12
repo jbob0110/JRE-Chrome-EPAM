@@ -135,14 +135,14 @@ function deletePO(e) {
   for (i = 0; i < productOwners.length; i++) {
     if (!isFirefox) {
       if (productOwners[i] === e.path[1].innerHTML) {
-        var holder = productOwners[i].split(" :");
+        var holder = productOwners[i].split(": ");
         productOwners[holder[0]] = undefined;
         productOwners.splice(i, 1);
         break;
       }
     } else {
       if (productOwners[i] === e.originalTarget.parentElement.innerHTML) {
-        var holder = productOwners[i].split(" :");
+        var holder = productOwners[i].split(": ");
         productOwners[holder[0]] = undefined;
         productOwners.splice(i, 1);
         break;
@@ -161,14 +161,14 @@ function deleteTA(e) {
   for (i = 0; i < testAnalysts.length; i++) {
     if (!isFirefox) {
       if (testAnalysts[i] === e.path[1].innerHTML) {
-        var holder = testAnalysts[i].split(" :");
+        var holder = testAnalysts[i].split(": ");
         testAnalysts[holder[0]] = undefined;
         testAnalysts.splice(i, 1);
         break;
       }
     } else {
       if (testAnalysts[i] === e.originalTarget.parentElement.innerHTML) {
-        var holder = testAnalysts[i].split(" :");
+        var holder = testAnalysts[i].split(": ");
         testAnalysts[holder[0]] = undefined;
         testAnalysts.splice(i, 1);
         break;
@@ -187,14 +187,14 @@ function deleteSE(e) {
   for (i = 0; i < softwareEngineers.length; i++) {
     if (!isFirefox) {
       if (softwareEngineers[i] === e.path[1].innerHTML) {
-        var holder = softwareEngineers[i].split(" :");
+        var holder = softwareEngineers[i].split(": ");
         softwareEngineers[holder[0]] = undefined;
         softwareEngineers.splice(i, 1);
         break;
       }
     } else {
       if (softwareEngineers[i] === e.originalTarget.parentElement.innerHTML) {
-        var holder = softwareEngineers[i].split(" :");
+        var holder = softwareEngineers[i].split(": ");
         softwareEngineers[holder[0]] = undefined;
         softwareEngineers.splice(i, 1);
         break;
@@ -213,14 +213,14 @@ function deleteTL(e) {
   for (i = 0; i < teamLead.length; i++) {
     if (!isFirefox) {
       if (teamLead[i] === e.path[1].innerHTML) {
-        var holder = teamLead[i].split(" :");
+        var holder = teamLead[i].split(": ");
         teamLead[holder[0]] = undefined;
         teamLead.splice(i, 1);
         break;
       }
     } else {
       if (teamLead[i] === e.originalTarget.parentElement.innerHTML) {
-        var holder = teamLead[i].split(" :");
+        var holder = teamLead[i].split(": ");
         teamLead[holder[0]] = undefined;
         teamLead.splice(i, 1);
         break;

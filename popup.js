@@ -43,7 +43,7 @@ chrome.storage.sync.get(['POarray'], function (result) {
     for (var i = 0; i< result.POarray.length; i++){
       option = document.createElement("option");
       var split = result.POarray[i].split("<spa");
-      split = split[0].split(" :");
+      split = split[0].split(": ");
       option.text = split[0];
       option.value = split[1];
       x.add(option);
@@ -59,7 +59,7 @@ chrome.storage.sync.get(['TAarray'], function (result) {
     for (var i = 0; i< result.TAarray.length; i++){
       option = document.createElement("option");
       var split = result.TAarray[i].split("<spa");
-      split = split[0].split(" :");
+      split = split[0].split(": ");
       option.text = split[0];
       option.value = split[1];
       x.add(option);
@@ -75,7 +75,7 @@ chrome.storage.sync.get(['SEarray'], function (result) {
     for (var i = 0; i< result.SEarray.length; i++){
       option = document.createElement("option");
       var split = result.SEarray[i].split("<spa");
-      split = split[0].split(" :");
+      split = split[0].split(": ");
       option.text = split[0];
       option.value = split[1];
       x.add(option);
@@ -91,7 +91,7 @@ chrome.storage.sync.get(['TLarray'], function(result) {
     for(var i = 0; i< result.TLarray.length; i++){
       option = document.createElement("option");
       split = result.TLarray[i].split("<spa");
-      split = split[0].split(" :");
+      split = split[0].split(": ");
       option.text = split[0];
       option.value = split[1];
       x.add(option);
