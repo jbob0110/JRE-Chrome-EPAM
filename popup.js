@@ -24,9 +24,11 @@ function getURLs(url){
     pKey: 3
   };
   var m = re.exec(url);
-  jiraKey = m[regexGroups.jKey];
-  project = m[regexGroups.pKey];
-  jiraInstance = m[regexGroups.jIns];
+  if( m != null) {
+    jiraKey = m[regexGroups.jKey];
+    project = m[regexGroups.pKey];
+    jiraInstance = m[regexGroups.jIns];
+  }
 };
 
 function checkAsynRequestCount(){

@@ -1,9 +1,8 @@
 var productOwners = [];
 var testAnalysts = [];
 var softwareEngineers = [];
-var teamLead = [];
+var teamLeads = [];
 
-var isFirefox = typeof InstallTrigger !== 'undefined';
 window.onload = () => {
   chrome.storage.sync.get(['POarray'], function (result) {
     if (result.POarray === undefined) {
@@ -22,9 +21,10 @@ window.onload = () => {
   });
   chrome.storage.sync.get(['TLarray'], function (result) {
     if (result.TLarray === undefined) {
-      chrome.storage.sync.set({ TLarray: teamLead }, function () { console.log("Initial team lead array save!"); });
+      chrome.storage.sync.set({ TLarray: teamLeads }, function () { console.log("Initial team lead array save!"); });
     }
   });
+
   addPOs();
   addTAs();
   addSEs();
@@ -86,15 +86,15 @@ window.onload = () => {
     chrome.storage.sync.get(['TLarray'], function (result) {
       for (var i = 0; i < result.TLarray.length; i++) {
         holder = result.TLarray[i].split(": ");
-        teamLead[holder[0]] = true;
+        teamLeads[holder[0]] = true;
       }
-      if (teamLead[name] != undefined) {
+      if (teamLeads[name] != undefined) {
         alert("Name already on the list.");
         document.getElementById('TLname').value = '';
         document.getElementById('TLid').value = '';
       } else {
-        teamLead[name] = true;
-        addNames('TLname', 'TLid', 'TLlist', document.getElementById('TLname').value + ": " + document.getElementById('TLid').value, teamLead, deleteTL);
+        teamLeads[name] = true;
+        addNames('TLname', 'TLid', 'TLlist', document.getElementById('TLname').value + ": " + document.getElementById('TLid').value, teamLeads, deleteTL);
       }
     });
   }
@@ -110,37 +110,26 @@ window.onload = () => {
 }
 
 function save_options() {
-  if (isFirefox) {
-    browser.storage.sync.set({
-      POarray: productOwners,
-      TAarray: testAnalysts,
-      SEarray: softwareEngineers,
-      TLarray: teamLead
-    }, function () {
-      console.log("Settings Saved")
-    });
-  } else {
     chrome.storage.sync.set({
       POarray: productOwners,
       TAarray: testAnalysts,
       SEarray: softwareEngineers,
-      TLarray: teamLead
+      TLarray: teamLeads
     }, function () {
       console.log("Settings Saved");
     });
   }
-}
 
 function deletePO(e) {
   var closebtns = document.getElementsByClassName("close");
   for (i = 0; i < productOwners.length; i++) {
-      if (productOwners[i] === e.originalTarget.parentElement.innerHTML) {
+      if (productOwners[i] === e.currentTarget.parentElement.innerHTML) {
         var holder = productOwners[i].split(": ");
         productOwners[holder[0]] = undefined;
         productOwners.splice(i, 1);
+        e.currentTarget.parentElement.style.display = "none";
         break;
       }
-      e.originalTarget.parentElement.style.display = "none";
   }
     save_options();
 }
@@ -148,13 +137,13 @@ function deletePO(e) {
 function deleteTA(e) {
   var closebtns = document.getElementsByClassName("close");
   for (i = 0; i < testAnalysts.length; i++) {
-      if (testAnalysts[i] === e.originalTarget.parentElement.innerHTML) {
+      if (testAnalysts[i] === e.currentTarget.parentElement.innerHTML) {
         var holder = testAnalysts[i].split(": ");
         testAnalysts[holder[0]] = undefined;
         testAnalysts.splice(i, 1);
+        e.currentTarget.parentElement.style.display = "none";
         break;
       }
-      e.originalTarget.parentElement.style.display = "none";
   }
     save_options();
 }
@@ -162,27 +151,27 @@ function deleteTA(e) {
 function deleteSE(e) {
   var closebtns = document.getElementsByClassName("close");
   for (i = 0; i < softwareEngineers.length; i++) {
-    if (softwareEngineers[i] === e.originalTarget.parentElement.innerHTML) {
+    if (softwareEngineers[i] === e.currentTarget.parentElement.innerHTML) {
       var holder = softwareEngineers[i].split(": ");
       softwareEngineers[holder[0]] = undefined;
       softwareEngineers.splice(i, 1);
+      e.currentTarget.parentElement.style.display = "none";
       break;
     }
-    e.originalTarget.parentElement.style.display = "none";
   }
   save_options();
 }
 
 function deleteTL(e) {
   var closebtns = document.getElementsByClassName("close");
-  for (i = 0; i < teamLead.length; i++) {
-    if (teamLead[i] === e.originalTarget.parentElement.innerHTML) {
-      var holder = teamLead[i].split(": ");
-      teamLead[holder[0]] = undefined;
-      teamLead.splice(i, 1);
+  for (i = 0; i < teamLeads.length; i++) {
+    if (teamLeads[i] === e.currentTarget.parentElement.innerHTML) {
+      var holder = teamLeads[i].split(": ");
+      teamLeads[holder[0]] = undefined;
+      teamLeads.splice(i, 1);
+      e.currentTarget.parentElement.style.display = "none";
       break;
     }
-    e.originalTarget.parentElement.style.display = "none";
   }
   save_options();
 }
@@ -215,7 +204,7 @@ function addTLs() {
   chrome.storage.sync.get(['TLarray'], function (result) {
     for (var i = 0; i < result.TLarray.length; i++) {
       result.TLarray[i] = result.TLarray[i].split("<sp")[0];
-      addNames('TLname', 'TLid', 'TLlist', result.TLarray[i], teamLead, deleteTL);
+      addNames('TLname', 'TLid', 'TLlist', result.TLarray[i], teamLeads, deleteTL);
     }
   });
 }
@@ -231,7 +220,7 @@ function addNames(name, id, pointer, text, array, deleter) {
   array.push(entry.innerHTML);
   document.getElementById(name).value = '';
   document.getElementById(id).value = '';
-  spanDelete.onclick = deleter;
+  spanDelete.addEventListener("click", deleter);
   save_options();
 }
 
