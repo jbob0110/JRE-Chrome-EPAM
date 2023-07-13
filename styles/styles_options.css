@@ -27,6 +27,11 @@
    cursor: pointer;
 }
 
+.close:hover {color:#C74634;}
+  p{
+    display:inline;
+  }
+
 #clearSyncStorage {
   display: block;
    background-color: #C74634;
