@@ -6,15 +6,33 @@ var description;
 // asyncRequestCount keeps track of when the sub-tasks are being sent.
 var asyncRequestCount = 0;
 /**This if checks the users browser and grabs their browser information based on this.*/
-chrome.tabs.query({
-  'active': true,
-  'currentWindow': true
-},
-  function (tabs) {
+chrome.tabs.query({'active': true, 'currentWindow': true}, function (tabs) {
     url = tabs[0].url;
+    tabId = tabs[0].id;
     getURLs(url);
-  }
-);
+    console.log("jiraURL: " + url);
+    console.log("jiraKey: " + jiraKey);
+    console.log("jiraProject: " + project);
+    console.log("jiraInstance: " + jiraInstance);
+    chrome.scripting.executeScript({
+      target: {tabId: tabId},
+      func: getValuesDevWorkflow,
+    })
+    .then(injectionResults => {
+      for (const {result} of injectionResults) {
+        gIssueType = result['issueType'];
+        gComp = result['components'];
+        gSolution = result['solution'];
+        gSolutionDetail = result['solutionDetail'];
+        gJiraGroup = result ['jiraGroup'];
+      };
+      console.log("issue type: " + gIssueType);
+      console.log("component: " + gComp);
+      console.log("solution: " + gSolution);
+      console.log("solution detail: " + gSolutionDetail);
+      console.log("jira group: " + gJiraGroup);
+    });
+});
 
 function getURLs(url){
   var re = /https\:\/\/(.+?)\..+\/((.+?)\-[^\?]+)/;
@@ -28,6 +46,16 @@ function getURLs(url){
     jiraKey = m[regexGroups.jKey];
     project = m[regexGroups.pKey];
     jiraInstance = m[regexGroups.jIns];
+  }
+};
+
+function getValuesDevWorkflow(){
+  return {
+    issueType: document.getElementById('type-val').innerText,
+    components: document.getElementById('components-val').innerText,
+    solution: document.getElementById('customfield_14800-val').innerText,
+    solutionDetail: document.getElementById('customfield_14801-val').innerText,
+    jiraGroup: document.getElementById('customfield_14802-val').innerText,
   }
 };
 
@@ -118,8 +146,61 @@ function addSubTask(subtask){
   xhr.send(JSON.stringify(subtask));
 };
 
-/**PCFRAME Stories SC-Y Button - Sub-Tasks Created */
+/**Add Story Function */
+function addTemplate(template){
+  var xhr = new XMLHttpRequest;
+  xhr.open("POST", "https://"+jiraInstance+".cerner.com/rest/api/2/issue/");
+  xhr.setRequestHeader("Content-Type","application/json");
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      console.log(xhr.responseText);
+      asyncRequestCount--;
+      checkAsynRequestCount();
+    }
+  };
+  asyncRequestCount++;
+
+  // Send the payload as JSON
+  const payloadString = JSON.stringify(template);
+  // Print the payloadString to chrome console
+  console.log(payloadString);
+  xhr.send(payloadString);
+};
+
 window.onload = () => {
+  /**Create Story/Defect Template Button - Story created on Feature */
+  document.getElementById('scTemplate').onclick = () => {
+    var Po = document.getElementById('POs').value;
+    var Ta = document.getElementById('TAs').value;
+    var Se = document.getElementById('SEs').value;
+    var Tl = document.getElementById('TLs').value;
+    console.log("PO: "+Po);
+    console.log("TA: "+Ta);
+    console.log("SE: "+Se);
+    console.log("TL: "+Tl);
+    document.getElementById('loader').style.display = "block";
+    
+    addTemplate({
+      "fields":{
+        "project":{
+          "key": project
+        },
+        "customfield_11000": jiraKey,
+        "summary":"Story/Defect Template",
+        "description":"*Project Details Link:\n<Add project details here>\n\n*As a <type of user> I would like to <add goal> so that <reason to do work>*",
+        "issuetype":{
+          "name":"Story"
+        },
+        "customfield_14800": gSolution,
+        "customfield_14801": gSolutionDetail,
+        "customfield_14802": gJiraGroup
+      }
+    }
+    );
+    console.log("Story/Defect template added to Feature");
+  };
+
+  /**PCFRAME Stories SC-Y Button - Sub-Tasks Created */
   document.getElementById('scYesPCFRAMEStory').onclick = () => {
     var Po = document.getElementById('POs').value;
     var Ta = document.getElementById('TAs').value;
