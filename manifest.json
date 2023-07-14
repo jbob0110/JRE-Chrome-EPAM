@@ -1,19 +1,22 @@
 {  
    "name":"JIRA Extension",
-   "version":"0.0.1",
+   "version":"0.2.0",
    "description":"Creates JIRA Issues",
    "permissions":[
-      "<all_urls>",
       "activeTab",
       "tabs",
-      "storage"
+      "storage",
+      "scripting"
    ],
+   "host_permissions": [
+      "https://*/"
+    ],
    "options_ui": {
       "page": "options.html",
       "open_in_tab": true,
       "browser_style": true
    },
-   "browser_action": {
+   "action": {
       "default_popup": "popup.html",
       "default_icon": {
          "16":"icons/icon16-dark.png",
@@ -21,5 +24,5 @@
          "128":"icons/icon128-dark.png"
       }
    },
-   "manifest_version":2
+   "manifest_version":3
 }
